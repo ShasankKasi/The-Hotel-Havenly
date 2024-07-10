@@ -1,0 +1,19 @@
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .checkbox-label {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .checkbox-wrapper input[type="checkbox"] {
+    cursor: pointer;
+  }
+  
+  .checkbox-wrapper input[type="checkbox"]:focus {
+    outline: none;
+  }
+  
