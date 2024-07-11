@@ -21,8 +21,11 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.1",
+    "react-slideshow-image": "^4.3.1",
     "recharts": "^2.10.2",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "swiper": "^11.1.4",
+    "swiper-react": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

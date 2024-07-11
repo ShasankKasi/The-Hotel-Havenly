@@ -1,39 +1,9 @@
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
+
 import styled from "styled-components";
 import { useCabinPhotos } from "../features/cabins/useCabinPhotos";
 import Spinner from "../ui/Spinner";
-
-// Styled components
-const GalleryContainer = styled.div`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(300px, 1fr)
-  ); /* Adjusted for better spacing */
-  justify-items: center;
-  padding: 20px;
-`;
-
-const ImageWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-  border-radius: 8px;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
 
 const HotelDescription = styled.div`
   text-align: center;
@@ -52,8 +22,23 @@ const Description = styled.p`
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 `;
 
+const SlideContainer = styled.div`
+  .slide-container {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const SlideImageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 70vh; /* Use viewport height for responsiveness */
+`;
+
 function Gallery() {
-  const { isLoading, cabinPhotos = {} } = useCabinPhotos();
+  const { isLoading, cabinPhotos = [] } = useCabinPhotos();
   if (isLoading) return <Spinner />;
 
   return (
@@ -65,13 +50,15 @@ function Gallery() {
           designed to provide comfort and a memorable stay.
         </Description>
       </HotelDescription>
-      <GalleryContainer>
-        {cabinPhotos.map((photo, index) => (
-          <ImageWrapper key={index}>
-            <Image src={photo} alt={`Cabin ${index}`} />
-          </ImageWrapper>
-        ))}
-      </GalleryContainer>
+      <SlideContainer>
+        <Slide>
+          {cabinPhotos.map((slideImage, index) => (
+            <SlideImageWrapper key={index} style={{ backgroundImage: `url(${slideImage})` }}>
+              <div style={{ height: '100%', width: '100%' }}></div>
+            </SlideImageWrapper>
+          ))}
+        </Slide>
+      </SlideContainer>
     </>
   );
 }
