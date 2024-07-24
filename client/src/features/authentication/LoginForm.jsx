@@ -156,8 +156,8 @@ const SubmitButton = styled(Button)`
 `;
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("thehotelhavenly@gmail.com");
+  const [password, setPassword] = useState("test@123");
   const { login, isLoading } = useLogin();
 
   function handleSubmit(e) {
@@ -185,7 +185,6 @@ function LoginForm() {
           placeholder=" "
           disabled={isLoading}
           onChange={(e) => setEmail(e.target.value)}
-          defaultValue="thehotelhavenly@gmail.com"
         />
         <Label htmlFor="email">Email address</Label>
       </UserBox>
@@ -198,7 +197,6 @@ function LoginForm() {
           placeholder=" "
           disabled={isLoading}
           onChange={(e) => setPassword(e.target.value)}
-          defaultValue="test@123"
         />
         <Label htmlFor="password">Password</Label>
       </UserBox>
