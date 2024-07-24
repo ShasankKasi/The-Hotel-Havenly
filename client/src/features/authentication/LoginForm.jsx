@@ -185,6 +185,7 @@ function LoginForm() {
           placeholder=" "
           disabled={isLoading}
           onChange={(e) => setEmail(e.target.value)}
+          defaultValue="thehotelhavenly@gmail.com"
         />
         <Label htmlFor="email">Email address</Label>
       </UserBox>
@@ -197,6 +198,7 @@ function LoginForm() {
           placeholder=" "
           disabled={isLoading}
           onChange={(e) => setPassword(e.target.value)}
+          defaultValue="test@123"
         />
         <Label htmlFor="password">Password</Label>
       </UserBox>
